@@ -15,7 +15,7 @@ permissions:
 jobs:
   source:
     if: ${{ !github.head_ref }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v6
         with:
@@ -44,7 +44,7 @@ jobs:
           sbom-path: artifacts/source.spdx.json
 
   linux-x86_64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
       matrix:
@@ -101,7 +101,7 @@ jobs:
           sbom-path: artifacts/linux-x86_64-${{ matrix.target }}.spdx.json
 
   linux-arm64:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-18.04-arm
     strategy:
       fail-fast: false
       matrix:
